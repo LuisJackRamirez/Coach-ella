@@ -39,12 +39,12 @@ def get_kardex (username):
     for x in result:
         kardex["materias"].append (
             {
-                "id": x["materia_id"],              \
-                "nombre": x["nombre"],      \
-                "grupo": x["grupo"],        \
-                "calif": x["calif"],            \
+                "id": x["materia_id"],
+                "nombre": x["nombre"],
+                "grupo": x["grupo"],
+                "calif": x["calif"],
                 "eval": x["eval"],
-                "periodo": x["periodo"]  
+                "periodo": x["periodo"]
             }
         )
         print (kardex["materias"][-1])
