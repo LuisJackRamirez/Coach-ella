@@ -1,9 +1,13 @@
-""" Kardex operations """
+# Kardex operations
+# eval: [ord | ext | ets]
 
-# eval: [ord | ext | ets] """
+from coachella.db import get_db
+
+import pymysql
 
 def asked_grades (lemma):
     keywords = [
+        'kardex',
         'calificación',
         'sacar',
         'ordinario',
@@ -17,27 +21,32 @@ def asked_grades (lemma):
     
     return False
 
-def get_kardex ():
-    """ Returns horario values """
+def get_kardex (username):
+    # Returns kardex values
+    conn = get_db ()
+    conn.select_db ('saes')
+
+    query = "SELECT materia_id,nombre,materia_cursada.grupo,calif,eval,periodo FROM materia_cursada JOIN materia ON (alumno_id = " + username + " AND id=materia_id) ORDER BY periodo;"
+    cursor = conn.cursor (pymysql.cursors.DictCursor)
+    cursor.execute (query)
+    result = cursor.fetchall ()
+
     kardex = {
         "json_id": 2,
-        "materias": [
-            {   "id": 1,            \
-                "nombre":"POO",     \
-                "grupo":"3",        \
-                "calif":10,         \
-                "eval":"ord",       \
-                "periodo":"20-1"    \
-            },
-            {
-                "id": 466,          \
-                "nombre":"IES",     \
-                "grupo":"3",        \
-                "calif":6,          \
-                "eval":"ext",       \
-                "periodo":"20-1"    \
-            }
-        ]
+        "materias": []
     }
+
+    for x in result:
+        kardex["materias"].append (
+            {
+                "id": x["materia_id"],              \
+                "nombre": x["nombre"],      \
+                "grupo": x["grupo"],        \
+                "calif": x["calif"],            \
+                "eval": x["eval"],
+                "periodo": x["periodo"]  
+            }
+        )
+        print (kardex["materias"][-1])
 
     return kardex
