@@ -37,7 +37,7 @@ def get_kardex ():
                 "eval":"ext",       \
                 "periodo":"20-1"    \
             }
-            ]
+        ]
     }
 
     return kardex
