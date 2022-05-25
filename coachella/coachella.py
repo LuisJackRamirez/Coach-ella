@@ -1,4 +1,3 @@
-from coachella.db import get_db
 from coachella.json_ops import create_json
 from coachella.nlp import read_query
 
@@ -33,6 +32,7 @@ def handle_request ():
     if request.method == 'POST':
         # Gets body from request
         value = request.form['msg']
+        username = request.form['user']
         print (request.form)
 
         # Obtain query to show on server's website
@@ -49,13 +49,13 @@ def handle_request ():
             ret_value = "Invalid request"
         if user_request == 1:
             # Request was identified as 'horario'
-            ret_value = create_json (1)
+            ret_value = create_json (1, username)
             # Request was identified as 'kardex'
         elif user_request == 2:
-            ret_value = create_json (2)
+            ret_value = create_json (2, username)
             # Request was identified as 'credits'
         elif user_request == 3:
-            ret_value = create_json (3)
+            ret_value = create_json (3, username)
 
         # Return JSON file
         return ret_value
