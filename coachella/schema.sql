@@ -43,3 +43,140 @@ CREATE TABLE carrera (
     
     FOREIGN KEY (alumno_id) REFERENCES alumno (username)
 );
+
+INSERT INTO alumno (username,passwrd) VALUES (
+    "2019630387",
+    "JackRourke343"
+);
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C105",
+    "Programacion orientada a objetos",
+    "2CM14"
+);
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C107",
+    "Probabilidad y estadistica",
+    "2CM14"
+);
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C117",
+    "Ecuaciones diferenciales",
+    "1CM12"
+);
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C105",
+        "2CM14",
+        "Lun",
+        "1200"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C105",
+        "2CM14",
+        "Mie",
+        "1330"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C105",
+        "2CM14",
+        "Jue",
+        "1200"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C117",
+        "1CM12",
+        "Lun",
+        "1030"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C117",
+        "1CM12",
+        "Mie",
+        "0800"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C117",
+        "1CM12",
+        "Jue",
+        "1030"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C107",
+        "2CM14",
+        "Mar",
+        "1030"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C107",
+        "2CM14",
+        "Mie",
+        "1030"
+    );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2019630387",
+        "C107",
+        "2CM14",
+        "Vie",
+        "1030"
+    );
