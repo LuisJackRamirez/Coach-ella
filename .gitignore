@@ -2,5 +2,7 @@ venv/
 
 __pycache__/
 
+instance/
+
 commands.txt
 test.*
