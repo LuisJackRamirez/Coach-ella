@@ -9,6 +9,7 @@
 import os
 
 from flask import Flask
+from . import db
 
 """ Application factory function """
 def create_app (test_config = None):
@@ -23,6 +24,11 @@ def create_app (test_config = None):
     """
     app = Flask (__name__, instance_relative_config = True)
 
+    #app.config.setdefault('MYSQL_HOST', 'localhost')
+    #app.config.setdefault('MYSQL_USER', 'root')
+    #app.config.setdefault('MYSQL_PASSWORD', 'Jack_Rourke_343')
+    #app.config.setdefault('MYSQL_DB', 'saes')
+
     # We set default configuration for the app to use.
     #
     # - SECRET_KEY is used to keep data safe.
@@ -33,7 +39,11 @@ def create_app (test_config = None):
     #   It's under app.instance path.
     app.config.from_mapping (
         SECRET_KEY = 'dev',
-        DATABASE = os.path.join (app.instance_path, 'coachella')
+        MYSQL_HOST = 'localhost',
+        MYSQL_USER = 'root',
+        MYSQL_PASSWORD = 'Jack_Rourke_343',
+        MYSQL_DB = 'saes'
+        # MYSQL_DB = os.path.join (app.instance_path, saes.sql)
     )
     
     # Override default configuration with a 'config.py' file
@@ -58,5 +68,8 @@ def create_app (test_config = None):
     @app.route ('/hello')
     def hello ():
         return "Hello, world!"
+
+    # Call the 'init_app ()' function from the factory
+    db.init_app (app)
 
     return app
