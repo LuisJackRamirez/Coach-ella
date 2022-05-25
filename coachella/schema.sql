@@ -44,25 +44,65 @@ CREATE TABLE carrera (
     FOREIGN KEY (alumno_id) REFERENCES alumno (username)
 );
 
+/* Test queries, must be removed */
 INSERT INTO alumno (username,passwrd) VALUES (
     "2019630387",
     "JackRourke343"
 );
+
+INSERT INTO alumno (username,passwrd) VALUES (
+    "2015630007",
+    "password"
+);
+
 INSERT INTO materia (id,nombre,grupo) VALUES (
     "C105",
     "Programacion orientada a objetos",
     "2CM14"
 );
+
 INSERT INTO materia (id,nombre,grupo) VALUES (
     "C107",
     "Probabilidad y estadistica",
     "2CM14"
 );
+
 INSERT INTO materia (id,nombre,grupo) VALUES (
     "C117",
     "Ecuaciones diferenciales",
     "1CM12"
 );
+
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C200",
+    "Estructuras de datos",
+    "1CM11"
+);
+
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C404",
+    "Algebra lineal",
+    "1CM14"
+);
+
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C101",
+    "Fundamentos economicos",
+    "2CM06"
+);
+
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C286",
+    "Calculo vectorial",
+    "1CM01"
+);
+
+INSERT INTO materia (id,nombre,grupo) VALUES (
+    "C210",
+    "Trabajo Terminal I",
+    "5CMx"
+);
+
 INSERT INTO materia_actual (
     alumno_id,
     materia_id,
@@ -76,6 +116,7 @@ INSERT INTO materia_actual (
         "Lun",
         "1200"
     );
+    
 INSERT INTO materia_actual (
     alumno_id,
     materia_id,
@@ -180,3 +221,107 @@ INSERT INTO materia_actual (
         "Vie",
         "1030"
     );
+INSERT INTO materia_actual (
+    alumno_id,
+    materia_id,
+    grupo,
+    dia,
+    hora
+    ) VALUES (
+        "2015630007",
+        "C210",
+        "5CMX",
+        "Jue",
+        "0830"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2019630387",
+        "C210",
+        "5CMX",
+        "22-1",
+        9,
+        "ord"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2015630007",
+        "C107",
+        "2CM14",
+        "19-2",
+        6,
+        "ext"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2019630387",
+        "C404",
+        "1CM14",
+        "20-1",
+        9,
+        "ord"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2015630007",
+        "C200",
+        "1CM11",
+        "16-2",
+        10,
+        "ets"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2019630387",
+        "C286",
+        "1CM01",
+        "19-1",
+        6,
+        "ord"
+    );
+INSERT INTO materia_cursada (
+    alumno_id,
+    materia_id,
+    grupo,
+    periodo,
+    calif,
+    eval
+    ) VALUES (
+        "2019630387",
+        "C101",
+        "2CM06",
+        "20-1",
+        8,
+        "ord"
+    );
+    
