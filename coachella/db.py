@@ -5,6 +5,16 @@ from flask import current_app, g
 from flask.cli import with_appcontext
 from mysql.connector import errorcode
 
+def execute_init_query (db):
+    with current_app.open_resource ('schema.sql') as f:
+        ret = f.read ().decode ("utf8").split (';')
+        ret.pop ()
+
+        for sql_request in ret:
+            db.cursor ().execute (sql_request + ';')
+
+        db.commit ()
+
 def get_db ():
     # Create a connection to a database.
     # Any query and operations are performed
@@ -55,14 +65,7 @@ def init_db ():
     # commands read from the SQL file.
     db.cursor ().execute ("CREATE DATABASE IF NOT EXISTS saes;")
     db.select_db ("saes")
-    with current_app.open_resource ('schema.sql') as f:
-        ret = f.read ().decode ("utf8").split (';')
-        ret.pop ()
-
-        for sql_request in ret:
-            db.cursor ().execute (sql_request + ';')
-
-        db.commit ()
+    execute_init_query (db)
 
 # click.command () defines a command line command called
 # 'init-db' so we can initialize the database and show a 
