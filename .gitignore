@@ -1,8 +1,8 @@
+__pycache__/
+instance/
 venv/
 
-__pycache__/
-
-instance/
+coachella/server.py
 
 commands.txt
 test.*
