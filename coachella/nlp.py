@@ -1,35 +1,34 @@
 import spacy
-from career import asked_credits
-from horario import asked_schedule
-from kardex import asked_grades
+
+from coachella.career import asked_credits
+from coachella.horario import asked_schedule
+from coachella.kardex import asked_grades
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 def preprocess_phrase (phrase):
-    # Palabras stop
+    # Stop words
     stop_words = set(stopwords.words('spanish'))
 
-    # Tokenizar la cadena de entrada
+    # Tokenize query for future processing
     word_tokens = word_tokenize (phrase)
-    # print (word_tokens)
 
-    # Eliminar palabras stop
+    # Remove stop words
     filtered_sentence = []
     for w in word_tokens:
         if w not in stop_words:
-            #filtered_sentence.append (w + ' ')
             filtered_sentence.append (w)
 
     return ' '.join(filtered_sentence)
 
 def lemmatize_phrase (phrase):
-    # Cargar base de datos
+    # Load spacy database
     nlp = spacy.load("es_core_news_sm")
 
-    # Tokenizar la cadena de entrada
+    # Tokenize query
     doc = nlp (phrase)
 
-    # Lematización
+    # Lemmatization
     lemmas = []
     for token in doc:
         if (token.pos_) != 'PUNCT':
@@ -37,13 +36,13 @@ def lemmatize_phrase (phrase):
 
     return lemmas
 
-""" Query processing """
+# Query processing
 def read_query (query):
     preprocessed_phrase = preprocess_phrase (query)
     lemmatized_phrase = lemmatize_phrase (preprocessed_phrase)
     print (lemmatized_phrase)
 
-    """ Analyzes query and finds operation """
+    # Analyzes query and finds operation
     for lemma in lemmatized_phrase:
         if asked_schedule (lemma) == True:
             return 1
