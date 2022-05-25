@@ -8,8 +8,9 @@
 
 import os
 
-from flask import Flask
+from . import coachella
 from . import db
+from flask import Flask
 
 """ Application factory function """
 def create_app (test_config = None):
@@ -71,5 +72,8 @@ def create_app (test_config = None):
 
     # Call the 'init_app ()' function from the factory
     db.init_app (app)
+
+    # Import and register blueprint from factory
+    app.register_blueprint (coachella.bp)
 
     return app
