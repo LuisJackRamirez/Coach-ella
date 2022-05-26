@@ -47,6 +47,5 @@ def get_kardex (username):
                 "periodo": x["periodo"]
             }
         )
-        print (kardex["materias"][-1])
 
     return kardex
