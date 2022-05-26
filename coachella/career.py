@@ -1,4 +1,8 @@
-""" Career operations """
+# Career operations
+
+from coachella.db import get_db
+
+import pymysql
 
 def asked_credits (lemma):
     keywords = [
@@ -16,17 +20,27 @@ def asked_credits (lemma):
     
     return False
 
-def get_career ():
-    """ Returns career values """
+def get_career (username):
+    # Returns career values
+    query = "SELECT reprobadas,creditos_total,creditos_pend,creditos_repr,periodos_cursados,periodos_disponibles,carga_auth FROM carrera WHERE alumno_id = " + username + ";"
+
+    conn = get_db ()
+    conn.select_db ('saes')
+
+    cursor = conn.cursor (pymysql.cursors.DictCursor)
+    cursor.execute (query)
+    result = cursor.fetchone ()
+
     carrera = {
-        "json_id": 3,
-        "reprobadas": 0,
-        "creditos_total":196.03,
-        "creditos_pend":33.57,
-        "creditos_repr":61.00,
-        "periodos_cursados":7,
-        "periodos_disponibles":7,
-        "carga_auth":"max"
+        "json_id": 3
     }
+
+    carrera["reprobadas"] = result["reprobadas"]
+    carrera["creditos_total"] = result["creditos_total"]
+    carrera["creditos_pend"] = result["creditos_pend"]
+    carrera["creditos_repr"] = result["creditos_repr"]
+    carrera["periodos_cursados"] = result["periodos_cursados"]
+    carrera["periodos_disponibles"] = result["periodos_disponibles"]
+    carrera["carga_auth"] = result["carga_auth"]
 
     return carrera
