@@ -40,6 +40,13 @@ CREATE TABLE materia_actual (
 
 CREATE TABLE carrera (
     alumno_id char(10) NOT NULL,
+    reprobadas INT NOT NULL,
+    creditos_total float(5,2) NOT NULL,
+    creditos_pend float(5,2) NOT NULL,
+    creditos_repr float(5,2) NOT NULL,
+    periodos_cursados INT NOT NULL,
+    periodos_disponibles INT NOT NULL,
+    carga_auth char(3) NOT NULL,
     
     FOREIGN KEY (alumno_id) REFERENCES alumno (username)
 );
@@ -324,4 +331,43 @@ INSERT INTO materia_cursada (
         8,
         "ord"
     );
-    
+
+INSERT INTO carrera (
+    alumno_id,
+    reprobadas,
+    creditos_total,
+    creditos_pend,
+    creditos_repr,
+    periodos_cursados,
+    periodos_disponibles,
+    carga_auth
+) VALUES (
+    "2019630387",
+    0,
+    196.03,
+    33.57,
+    0,
+    7,
+    7,
+    "max"
+);
+
+INSERT INTO carrera (
+    alumno_id,
+    reprobadas,
+    creditos_total,
+    creditos_pend,
+    creditos_repr,
+    periodos_cursados,
+    periodos_disponibles,
+    carga_auth
+) VALUES (
+    "2015630007",
+    5,
+    96.03,
+    133.57,
+    61.00,
+    8,
+    2,
+    "min"
+);
