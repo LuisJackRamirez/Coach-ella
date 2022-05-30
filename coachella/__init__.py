@@ -1,10 +1,7 @@
-"""
-    Application factory to create
-    to create a Flask instance globally.
-    Any setup the application needs will
-    happen inside a function before returning
-    the application.
-"""
+#   Application factory to create a Flask 
+#   instance globally. Any setup the application 
+#   needs will  happen inside a function 
+#   before returning the application.
 
 import os
 
@@ -12,17 +9,15 @@ from . import coachella
 from . import db
 from flask import Flask
 
-""" Application factory function """
+# Application factory function
 def create_app (test_config = None):
-    """ Create and configure app. We use '__name__'
-        to know where the current Python module is located
-        in order to set up some paths. 
-
-        We also let the Flask application know that configuration
-        files are relative to the instance folder located outside
-        the 'coachella' package, and holds data like configuration
-        secrets and database file.
-    """
+    # Create and configure app. We use '__name__'
+    # to know where the current Python module is located
+    # in order to set up some paths. 
+    # We also let the Flask application know that configuration
+    # files are relative to the instance folder located outside
+    # the 'coachella' package, and holds data like configuration
+    # secrets and database file.
     app = Flask (__name__, instance_relative_config = True)
 
     #app.config.setdefault('MYSQL_HOST', 'localhost')
@@ -73,7 +68,7 @@ def create_app (test_config = None):
     # Call the 'init_app ()' function from the factory
     db.init_app (app)
 
-    # Import and register blueprint from factory
+    # Import and register coachella blueprint from factory
     app.register_blueprint (coachella.bp)
 
     return app
