@@ -10,6 +10,7 @@ def asked_schedule (lemma):
         'hora',
         'calendario',
         'cuándo',
+        'cuando',
         'día',
         'clase'
     ]
