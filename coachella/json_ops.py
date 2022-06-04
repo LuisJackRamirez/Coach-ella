@@ -1,3 +1,4 @@
+# JSON operations
 import json
 
 # Uncomment following lines if testing from server.py
@@ -22,7 +23,7 @@ def create_json (query, username):
 
         return kardex_json
     elif query == 3:
-        # Créditos
+        # Creditos
         creditos_json = json.dumps (get_career (username))
 
         return creditos_json
