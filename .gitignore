@@ -16,3 +16,4 @@ coachella/server.py
 commands.txt
 test.*
 DISPLAY_val.txt
+.env
