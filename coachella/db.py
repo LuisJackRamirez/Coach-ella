@@ -1,18 +1,17 @@
 import click
-import pymysql
+import psycopg2
 
 from flask import current_app, g
 from flask.cli import with_appcontext
-from mysql.connector import errorcode
 
 def execute_init_query (db):
     with current_app.open_resource ('schema.sql') as f:
-        ret = f.read ().decode ("utf8").split (';')
+        '''ret = f.read ().decode ("utf8").split (';')
         ret.pop ()
 
         for sql_request in ret:
-            db.cursor ().execute (sql_request + ';')
-
+            db.cursor ().execute (sql_request + ';')'''
+        db.cursor ().execute (f.read ().decode ('utf8'))
         db.commit ()
 
 def get_db ():
@@ -38,11 +37,17 @@ def get_db ():
             # We establish a connection to the database with
             # the configuration from the current_app, which,
             # again, won't exist until we initialize the app.
-            g.db = pymysql.connect (
+            '''g.db = pymysql.connect (
                 user = current_app.config["MYSQL_USER"], 
                 password = current_app.config["MYSQL_PASSWORD"],
                 host = current_app.config["MYSQL_HOST"]
                 #port = current_app.config["MYSQL_PORT"]
+            )'''
+            g.db = psycopg2.connect (
+                host = current_app.config["DB_HOST"],
+                database = current_app.config["DB_NAME"],
+                user = current_app.config["DB_USERNAME"],
+                password = current_app.config["DB_PASSWORD"]
             )
         except Exception as e:
             print (e)
@@ -64,8 +69,8 @@ def init_db ():
     # Open "schema.sql" with a path relative to the package,
     # and use the connection with get_db to execute the SQL
     # commands read from the SQL file.
-    db.cursor ().execute ("CREATE DATABASE IF NOT EXISTS saes;")
-    db.select_db ("saes")
+    # db.cursor ().execute ("CREATE DATABASE IF NOT EXISTS saes;")
+    # db.select_db ("saes")
     execute_init_query (db)
 
 # click.command () defines a command line command called

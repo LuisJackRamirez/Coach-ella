@@ -37,11 +37,15 @@ def create_app (test_config = None):
     
     app.config.from_mapping (
         SECRET_KEY = secrets.token_hex(),
-        MYSQL_HOST = '0.0.0.0',
-        MYSQL_USER = 'root',
+        DB_HOST = 'localhost',
+        DB_NAME = 'saes',
+        DB_USERNAME = 'luisjackrmz',
+        DB_PASSWORD = 'Jack_Rourke_343'
+        #MYSQL_HOST = 'localhost',
+        #MYSQL_USER = 'root',
         #MYSQL_PORT = 3001,
-        MYSQL_PASSWORD = 'Jack_Rourke_343',
-        MYSQL_DB = 'saes'
+        #MYSQL_PASSWORD = 'Jack_Rourke_343',
+        #MYSQL_DB = '/instance/saes'
         # MYSQL_DB = os.path.join (app.instance_path, saes.sql)
     )
     
