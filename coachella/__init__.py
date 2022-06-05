@@ -4,6 +4,7 @@
 #   before returning the application.
 
 import os
+import secrets
 
 from . import coachella
 from . import db
@@ -33,9 +34,10 @@ def create_app (test_config = None):
     #
     # - DATABASE is the path where the MySQL file will be saved.
     #   It's under app.instance path.
+    
     app.config.from_mapping (
-        SECRET_KEY = 'dev',
-        MYSQL_HOST = 'localhost',
+        SECRET_KEY = secrets.token_hex(),
+        MYSQL_HOST = '0.0.0.0',
         MYSQL_USER = 'root',
         #MYSQL_PORT = 3001,
         MYSQL_PASSWORD = 'Jack_Rourke_343',
