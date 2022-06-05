@@ -41,8 +41,8 @@ def get_db ():
             g.db = pymysql.connect (
                 user = current_app.config["MYSQL_USER"], 
                 password = current_app.config["MYSQL_PASSWORD"],
-                host = current_app.config["MYSQL_HOST"],
-                port = current_app.config["MYSQL_PORT"]
+                host = current_app.config["MYSQL_HOST"]
+                #port = current_app.config["MYSQL_PORT"]
             )
         except Exception as e:
             print (e)
