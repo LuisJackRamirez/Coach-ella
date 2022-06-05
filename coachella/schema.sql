@@ -41,9 +41,12 @@ CREATE TABLE materia_actual (
 CREATE TABLE carrera (
     alumno_id char(10) NOT NULL,
     reprobadas INT NOT NULL,
-    creditos_total float(5,2) NOT NULL,
+    /*creditos_total float(5,2) NOT NULL,
     creditos_pend float(5,2) NOT NULL,
-    creditos_repr float(5,2) NOT NULL,
+    creditos_repr float(5,2) NOT NULL,*/
+    creditos_total NUMERIC(5,2) NOT NULL,
+    creditos_pend NUMERIC(5,2) NOT NULL,
+    creditos_repr NUMERIC(5,2) NOT NULL,
     periodos_cursados INT NOT NULL,
     periodos_disponibles INT NOT NULL,
     carga_auth char(3) NOT NULL,
@@ -53,61 +56,61 @@ CREATE TABLE carrera (
 
 /* Test queries, must be removed */
 INSERT INTO alumno (username,passwrd) VALUES (
-    "2019630387",
-    "JackRourke343"
+    '2019630387',
+    'JackRourke343'
 );
 
 INSERT INTO alumno (username,passwrd) VALUES (
-    "2015630007",
-    "password"
+    '2015630007',
+    'password'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C105",
-    "Programacion orientada a objetos",
-    "2CM14"
+    'C105',
+    'Programacion orientada a objetos',
+    '2CM14'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C107",
-    "Probabilidad y estadistica",
-    "2CM14"
+    'C107',
+    'Probabilidad y estadistica',
+    '2CM14'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C117",
-    "Ecuaciones diferenciales",
-    "1CM12"
+    'C117',
+    'Ecuaciones diferenciales',
+    '1CM12'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C200",
-    "Estructuras de datos",
-    "1CM11"
+    'C200',
+    'Estructuras de datos',
+    '1CM11'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C404",
-    "Algebra lineal",
-    "1CM14"
+    'C404',
+    'Algebra lineal',
+    '1CM14'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C101",
-    "Fundamentos economicos",
-    "2CM06"
+    'C101',
+    'Fundamentos economicos',
+    '2CM06'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C286",
-    "Calculo vectorial",
-    "1CM01"
+    'C286',
+    'Calculo vectorial',
+    '1CM01'
 );
 
 INSERT INTO materia (id,nombre,grupo) VALUES (
-    "C210",
-    "Trabajo Terminal I",
-    "5CMx"
+    'C210',
+    'Trabajo Terminal I',
+    '5CMX'
 );
 
 INSERT INTO materia_actual (
@@ -117,11 +120,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C105",
-        "2CM14",
-        "Lun",
-        "1200"
+        '2019630387',
+        'C105',
+        '2CM14',
+        'Lun',
+        '1200'
     );
     
 INSERT INTO materia_actual (
@@ -131,11 +134,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C105",
-        "2CM14",
-        "Mie",
-        "1330"
+        '2019630387',
+        'C105',
+        '2CM14',
+        'Mie',
+        '1330'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -144,11 +147,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C105",
-        "2CM14",
-        "Jue",
-        "1200"
+        '2019630387',
+        'C105',
+        '2CM14',
+        'Jue',
+        '1200'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -157,11 +160,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C117",
-        "1CM12",
-        "Lun",
-        "1030"
+        '2019630387',
+        'C117',
+        '1CM12',
+        'Lun',
+        '1030'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -170,11 +173,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C117",
-        "1CM12",
-        "Mie",
-        "0800"
+        '2019630387',
+        'C117',
+        '1CM12',
+        'Mie',
+        '0800'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -183,11 +186,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C117",
-        "1CM12",
-        "Jue",
-        "1030"
+        '2019630387',
+        'C117',
+        '1CM12',
+        'Jue',
+        '1030'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -196,11 +199,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C107",
-        "2CM14",
-        "Mar",
-        "1030"
+        '2019630387',
+        'C107',
+        '2CM14',
+        'Mar',
+        '1030'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -209,11 +212,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C107",
-        "2CM14",
-        "Mie",
-        "1030"
+        '2019630387',
+        'C107',
+        '2CM14',
+        'Mie',
+        '1030'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -222,11 +225,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2019630387",
-        "C107",
-        "2CM14",
-        "Vie",
-        "1030"
+        '2019630387',
+        'C107',
+        '2CM14',
+        'Vie',
+        '1030'
     );
 INSERT INTO materia_actual (
     alumno_id,
@@ -235,11 +238,11 @@ INSERT INTO materia_actual (
     dia,
     hora
     ) VALUES (
-        "2015630007",
-        "C210",
-        "5CMX",
-        "Jue",
-        "0830"
+        '2015630007',
+        'C210',
+        '5CMX',
+        'Jue',
+        '0830'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -249,12 +252,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2019630387",
-        "C210",
-        "5CMX",
-        "22-1",
+        '2019630387',
+        'C210',
+        '5CMX',
+        '22-1',
         9,
-        "ord"
+        'ord'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -264,12 +267,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2015630007",
-        "C107",
-        "2CM14",
-        "19-2",
+        '2015630007',
+        'C107',
+        '2CM14',
+        '19-2',
         6,
-        "ext"
+        'ext'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -279,12 +282,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2019630387",
-        "C404",
-        "1CM14",
-        "20-1",
+        '2019630387',
+        'C404',
+        '1CM14',
+        '20-1',
         9,
-        "ord"
+        'ord'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -294,12 +297,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2015630007",
-        "C200",
-        "1CM11",
-        "16-2",
+        '2015630007',
+        'C200',
+        '1CM11',
+        '16-2',
         10,
-        "ets"
+        'ets'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -309,12 +312,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2019630387",
-        "C286",
-        "1CM01",
-        "19-1",
+        '2019630387',
+        'C286',
+        '1CM01',
+        '19-1',
         6,
-        "ord"
+        'ord'
     );
 INSERT INTO materia_cursada (
     alumno_id,
@@ -324,12 +327,12 @@ INSERT INTO materia_cursada (
     calif,
     eval
     ) VALUES (
-        "2019630387",
-        "C101",
-        "2CM06",
-        "20-1",
+        '2019630387',
+        'C101',
+        '2CM06',
+        '20-1',
         8,
-        "ord"
+        'ord'
     );
 
 INSERT INTO carrera (
@@ -342,14 +345,14 @@ INSERT INTO carrera (
     periodos_disponibles,
     carga_auth
 ) VALUES (
-    "2019630387",
+    '2019630387',
     0,
     196.03,
     33.57,
     0,
     7,
     7,
-    "max"
+    'max'
 );
 
 INSERT INTO carrera (
@@ -362,12 +365,12 @@ INSERT INTO carrera (
     periodos_disponibles,
     carga_auth
 ) VALUES (
-    "2015630007",
+    '2015630007',
     5,
     96.03,
     133.57,
     61.00,
     8,
     2,
-    "min"
+    'min'
 );
