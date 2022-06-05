@@ -1,1 +1,1 @@
-web: gunicorn -w 2 -b 0.0.0.0:5000 'coachella:create_app()'
+web: gunicorn -w 2 -b 0.0.0.0:${PORT} 'coachella:create_app()'
