@@ -37,6 +37,7 @@ def create_app (test_config = None):
         SECRET_KEY = 'dev',
         MYSQL_HOST = 'localhost',
         MYSQL_USER = 'root',
+        MYSQL_PORT = 3001,
         MYSQL_PASSWORD = 'Jack_Rourke_343',
         MYSQL_DB = 'saes'
         # MYSQL_DB = os.path.join (app.instance_path, saes.sql)
