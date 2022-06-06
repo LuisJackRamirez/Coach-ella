@@ -37,10 +37,11 @@ def create_app (test_config = None):
     
     app.config.from_mapping (
         SECRET_KEY = secrets.token_hex(),
-        DB_HOST = 'localhost',
-        DB_NAME = 'saes',
-        DB_USERNAME = 'luisjackrmz',
-        DB_PASSWORD = 'Jack_Rourke_343'
+        DATABASE_URI = 'postgres://fxzgunyyvzmnot:ecbc3d3d36e4a388692cd5ed22db1422a6b29ebe9d3500d3256d3a79c913d668@ec2-54-227-248-71.compute-1.amazonaws.com:5432/dcbji7piv880tg'
+        #DB_HOST = 'localhost',
+        #DB_NAME = 'saes',
+        #DB_USERNAME = 'postgres',
+        #DB_PASSWORD = 'Jack_Rourke_343'
         #MYSQL_HOST = 'localhost',
         #MYSQL_USER = 'root',
         #MYSQL_PORT = 3001,

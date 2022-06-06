@@ -42,13 +42,17 @@ def get_db ():
                 password = current_app.config["MYSQL_PASSWORD"],
                 host = current_app.config["MYSQL_HOST"]
                 #port = current_app.config["MYSQL_PORT"]
-            )'''
+            )''''''
             g.db = psycopg2.connect (
                 host = current_app.config["DB_HOST"],
                 database = current_app.config["DB_NAME"],
                 user = current_app.config["DB_USERNAME"],
                 password = current_app.config["DB_PASSWORD"]
-            )
+            )'''
+            g.db = psycopg2.connect (
+                current_app.config["DATABASE_URI"], 
+                sslmode = 'require'
+                )
         except Exception as e:
             print (e)
             # g.db.row_factory = g.db.cursor (dictionary = True)
