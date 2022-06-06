@@ -3,7 +3,7 @@
 
 from coachella.db import get_db
 
-import pymysql
+# import pymysql
 
 def asked_grades (lemma):
     keywords = [
@@ -26,17 +26,17 @@ def get_kardex (username):
     conn = get_db ()
     conn.select_db ('saes')
 
-    query = "SELECT materia_id,nombre,materia_cursada.grupo,calif,eval,periodo FROM materia_cursada JOIN materia ON (alumno_id = " + username + " AND id=materia_id) ORDER BY periodo;"
+    '''query = "SELECT materia_id,nombre,materia_cursada.grupo,calif,eval,periodo FROM materia_cursada JOIN materia ON (alumno_id = " + username + " AND id=materia_id) ORDER BY periodo;"
     cursor = conn.cursor (pymysql.cursors.DictCursor)
     cursor.execute (query)
-    result = cursor.fetchall ()
+    result = cursor.fetchall ()'''
 
     kardex = {
         "json_id": 2,
         "materias": []
     }
 
-    for x in result:
+    '''for x in result:
         kardex["materias"].append (
             {
                 "id": x["materia_id"],
@@ -46,6 +46,6 @@ def get_kardex (username):
                 "eval": x["eval"],
                 "periodo": x["periodo"]
             }
-        )
+        )'''
 
     return kardex
