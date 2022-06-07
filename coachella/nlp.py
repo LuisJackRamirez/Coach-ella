@@ -39,6 +39,24 @@ def lemmatize_phrase (phrase):
 # Query processing
 def read_query (query):
     preprocessed_phrase = preprocess_phrase (query)
+
+    materias_kw = [
+        'objetos',
+        'probabilidad',    
+        'diferenciales',
+        'estructuras',
+        'lineal',
+        'económicos',
+        'vectorial',
+        'terminal'
+    ]
+
+    materias = []
+    for word in preprocessed_phrase.split(' '):
+        print (word)
+        if word in materias_kw:
+            materias.append (word)
+
     lemmatized_phrase = lemmatize_phrase (preprocessed_phrase)
     print (lemmatized_phrase)
 
@@ -51,4 +69,4 @@ def read_query (query):
         elif asked_credits (lemma) == True:
             return 3
 
-    return -1
+    return -1, materias

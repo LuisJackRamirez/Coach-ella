@@ -50,7 +50,8 @@ def handle_request ():
             + str(username) + ": " + value)
 
         # Query will be analyzed.
-        user_request = read_query (value)
+        aux = []
+        user_request, aux = read_query (value)
         print ("User request: " + str(user_request))
 
         # Handle query response and create JSON file
@@ -60,13 +61,13 @@ def handle_request ():
             ret_value = "Invalid request"
         if user_request == 1:
             # Request was identified as 'horario'
-            ret_value = create_json (1, username)
+            ret_value = create_json (1, username, aux)
             # Request was identified as 'kardex'
         elif user_request == 2:
-            ret_value = create_json (2, username)
+            ret_value = create_json (2, username, aux)
             # Request was identified as 'credits'
         elif user_request == 3:
-            ret_value = create_json (3, username)
+            ret_value = create_json (3, username, aux)
 
         # Return JSON file
         return ret_value

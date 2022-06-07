@@ -21,7 +21,7 @@ def asked_schedule (lemma):
     
     return False
 
-def get_horario (username):
+def get_horario (username, materias):
     # Returns horario values
     conn = get_db ()
     # conn.select_db ('saes')
@@ -44,14 +44,16 @@ def get_horario (username):
     }
 
     for x in result:
-        horario["materias"].append (
-            {
-                "id": x["id"],              \
-                "nombre": x["nombre"],      \
-                "grupo": x["grupo"],        \
-                "dia": x["dia"],            \
-                "hora": x["hora"]  
-            }
-        )
+        for materia in materias:
+            if (x["nombre"].lower ()).find (materia) != -1:
+                horario["materias"].append (
+                    {
+                        "id": x["id"],              \
+                        "nombre": x["nombre"],      \
+                        "grupo": x["grupo"],        \
+                        "dia": x["dia"],            \
+                        "hora": x["hora"]  
+                    }
+                )
 
     return horario

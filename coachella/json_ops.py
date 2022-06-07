@@ -10,11 +10,11 @@ from coachella.horario import get_horario
 from coachella.kardex import get_kardex
 from coachella.career import get_career
 
-def create_json (query, username):
+def create_json (query, username, aux):
     # Creates JSON file
     if query == 1:
         # Horario
-        horario = get_horario (username)
+        horario = get_horario (username, aux)
 
         if horario == -1:
             horario_json = "Invalid request"
