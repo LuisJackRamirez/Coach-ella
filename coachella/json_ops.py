@@ -29,7 +29,7 @@ def create_json (query, username):
         if career == -1:
             creditos_json = "Invalid request"
         else:
-            creditos_json = json.dumps (get_career (username))
+            creditos_json = json.dumps (career)
 
         return creditos_json
 
