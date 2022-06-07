@@ -36,6 +36,9 @@ def get_career (username):
     cursor.execute (query)
     result = cursor.fetchone ()
 
+    if result == None:
+        return -1
+
     carrera = {
         "json_id": 3
     }

@@ -24,7 +24,12 @@ def create_json (query, username):
         return kardex_json
     elif query == 3:
         # Creditos
-        creditos_json = json.dumps (get_career (username))
+        career = get_career (username)
+
+        if career == -1:
+            creditos_json = "Invalid request"
+        else:
+            creditos_json = json.dumps (get_career (username))
 
         return creditos_json
 
