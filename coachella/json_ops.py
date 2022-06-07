@@ -1,5 +1,5 @@
 # JSON operations
-import json
+import simplejson as json
 
 # Uncomment following lines if testing from server.py
 # from horario import get_horario

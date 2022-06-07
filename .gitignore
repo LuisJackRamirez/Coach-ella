@@ -12,6 +12,7 @@ build
 *.egg-info/
 
 coachella/server.py
+coachella/tests*
 
 commands.txt
 test.*
