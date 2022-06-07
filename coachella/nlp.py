@@ -63,10 +63,10 @@ def read_query (query):
     # Analyzes query and finds operation
     for lemma in lemmatized_phrase:
         if asked_schedule (lemma) == True:
-            return 1
+            return 1, materias
         elif asked_grades (lemma) == True:
-            return 2
+            return 2, materias
         elif asked_credits (lemma) == True:
-            return 3
+            return 3, materias
 
     return -1, materias
