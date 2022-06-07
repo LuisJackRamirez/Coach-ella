@@ -14,12 +14,22 @@ def create_json (query, username):
     # Creates JSON file
     if query == 1:
         # Horario
-        horario_json = json.dumps (get_horario (username))
+        horario = get_horario (username)
+
+        if horario == -1:
+            horario_json = "Invalid request"
+        else:
+            horario_json = json.dumps (horario)
 
         return horario_json
     elif query == 2:
         # Kardex
-        kardex_json = json.dumps (get_kardex (username))
+        kardex = get_kardex (username)
+
+        if kardex == -1:
+            kardex_json = "Invalid request"
+        else:
+            kardex_json = json.dumps (kardex)
 
         return kardex_json
     elif query == 3:

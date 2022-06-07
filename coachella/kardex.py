@@ -38,6 +38,9 @@ def get_kardex (username):
     cursor.execute (query)
     result = cursor.fetchall ()
 
+    if len(result) == 0:
+        return -1
+
     kardex = {
         "json_id": 2,
         "materias": []

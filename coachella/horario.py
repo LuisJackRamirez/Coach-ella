@@ -35,6 +35,9 @@ def get_horario (username):
     cursor.execute (query)
     result = cursor.fetchall ()
 
+    if len(result) == 0:
+        return -1
+
     horario = {
         "json_id": 1,
         "materias": []
