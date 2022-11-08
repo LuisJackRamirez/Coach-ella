@@ -3,7 +3,7 @@ Web server to assist an Android virtual assistant for students enrolled at Escue
 
 Note: This project is **not** associated to the music festival, and the provided name is just provisional.
 
-## Servidor web
+## API
 * Realizado en Python utilizando el framework Flask, el motor de plantillas Jinja y el kit de herramientas WSGI Werkzeug.
 * Uso de fábrica de aplicación para crear la aplicación Flask y registrar todos los elementos por usar (lógica del programa, planos, bases de datos) en el contexto de la aplicación
 * Servidor recibe solicitudes HTTP de la aplicación móvil (cliente), cuyo cuerpo consiste en un usuario (número de boleta) y una cadena de texto (texto obtenido mediante entrada de voz). 
@@ -30,8 +30,6 @@ coachella: Python package containing application and other files
 
 # TODO
 * tests: Create *tests/* directory, and proper tests
-* Generate CSS for landing page
 * Require login to view voice query history
-* Setup for deployment somewhere somehow
 * Test memory usage and clean leaks if found.
 * CPU usage
